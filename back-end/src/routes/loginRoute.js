@@ -26,13 +26,13 @@ export const loginRoute = {
         { expiresIn: '2d' },
         (err, token) => {
           if (err) {
-            res.status(500).json({ error: err });
+            return res.status(500).json({ error: err });
           }
-          res.status(200).json({ token });
+          return res.status(200).json({ token });
         }
       );
     } else {
-      res.sendStatus(401);
+      return res.sendStatus(401);
     }
   },
 };
