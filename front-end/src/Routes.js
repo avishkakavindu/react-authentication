@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+import { PrivateRoute } from './auth/PrivateRoute';
 import { UserInfoPage } from './pages/UserInfoPage';
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
@@ -7,9 +9,9 @@ export const Routes = () => {
   return (
     <Router>
       <Switch>
-        <Route path='/' exact>
+        <PrivateRoute path='/' exact>
           <UserInfoPage />
-        </Route>
+        </PrivateRoute>
         <Route path='/login'>
           <LoginPage />
         </Route>
