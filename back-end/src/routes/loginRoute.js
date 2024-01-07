@@ -11,7 +11,6 @@ export const loginRoute = {
     const db = getDbConnection('react-auth-db');
 
     const user = await db.collection('users').findOne({ email });
-
     if (!user) {
       res.sendStatus(401);
     }
@@ -32,7 +31,8 @@ export const loginRoute = {
           res.status(200).json({ token });
         }
       );
+    } else {
+      res.sendStatus(401);
     }
-    return res.sendStatus(401);
   },
 };
